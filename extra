@@ -1,4 +1,5 @@
 # Desenvolva sua classe Copo aqui.
+#from typing import Union
 from .recipiente import Recipiente
 
 
@@ -8,18 +9,11 @@ class Copo(Recipiente):
         super().__init__(tamanho, conteudo=conteudo, limpo=limpo)
 
     def __repr__(self) -> str:
-        message = f"Um copo de %.1fml contendo %.1fml de {self.bebida}" % (
-            self.tamanho, self.conteudo)
+        message = f"Um copo de {self.tamanho}ml contendo {self.conteudo}ml de {self.bebida}."
         if self.conteudo == 0:
-            message = f"Um copo vazio de %.1fml" % (self.tamanho)
+            message = f"Um copo vazio de {self.tamanho}ml"
         return message
-
-    def __str__(self) -> str:
-        message = f"Um copo de %.1fml contendo %.1fml de {self.bebida}" % (
-            self.tamanho, self.conteudo)
-        if self.conteudo == 0:
-            message = f"Um copo vazio de %.1fml" % (self.tamanho)
-        return message
+        # return super().__repr__()
 
     def encher(self, bebida: str = "água"):
         if self.esta_limpo():
